@@ -48,4 +48,10 @@ public class InverterController {
     }
 
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<List<InverterModel>> getInverterModelsByIdManufacturer(@PathVariable Long id){
+        return ResponseEntity.ok(inverterService.findById(id));
+    }
+
+
 }

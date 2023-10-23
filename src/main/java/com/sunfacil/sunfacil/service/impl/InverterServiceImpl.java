@@ -56,4 +56,15 @@ public class InverterServiceImpl implements InverterService {
             throw new IllegalArgumentException("Not Found!");
         }
     }
+
+
+    //Find the Models from the Manufacture id
+    @Override
+    public List<InverterModel> findById(Long id) {
+
+        System.out.println(id);
+        var inverters = inverterRepository.findById(id);
+        System.out.println(inverters);
+        return inverterModelRepository.findModelsByManufacturer(inverters.get().getManufacturer());
+    }
 }

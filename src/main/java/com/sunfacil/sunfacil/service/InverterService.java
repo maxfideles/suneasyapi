@@ -15,5 +15,7 @@ public interface InverterService {
 
     InverterModel findByModel(String modelName);
 
+    List<InverterModel> findById(Long id);
+
 
 }
