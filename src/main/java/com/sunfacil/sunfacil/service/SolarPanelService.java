@@ -15,5 +15,7 @@ public interface SolarPanelService {
     SolarPanelModel findByModel(String modelName);
     List<SolarPanel> getAll();
 
+    List<SolarPanelModel> findById(Long id);
+
 
 }

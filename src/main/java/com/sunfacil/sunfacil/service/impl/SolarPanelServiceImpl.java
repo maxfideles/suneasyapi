@@ -59,6 +59,12 @@ public class SolarPanelServiceImpl implements SolarPanelService {
         return solarPanelRepository.findAll();
     }
 
+    @Override
+    public List<SolarPanelModel> findById(Long id) {
+        System.out.println(id);
+        var panels = solarPanelRepository.findById(id);
+        return solarPanelModelRepository.findByManufacturer(panels.get().getManufacturer());
+    }
 
 
 }

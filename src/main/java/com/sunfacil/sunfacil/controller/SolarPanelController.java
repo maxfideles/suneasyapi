@@ -51,6 +51,10 @@ public class SolarPanelController {
         return ResponseEntity.ok(solarPanelService.findByModel(modelName));
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<List<SolarPanelModel>> getPanelModelsByIdManufacturer (@PathVariable Long id){
+        return ResponseEntity.ok(solarPanelService.findById(id));
+    }
 
 
 }

@@ -62,9 +62,7 @@ public class InverterServiceImpl implements InverterService {
     @Override
     public List<InverterModel> findById(Long id) {
 
-        System.out.println(id);
         var inverters = inverterRepository.findById(id);
-        System.out.println(inverters);
         return inverterModelRepository.findModelsByManufacturer(inverters.get().getManufacturer());
     }
 }
