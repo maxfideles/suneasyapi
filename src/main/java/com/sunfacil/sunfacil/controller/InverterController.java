@@ -6,6 +6,7 @@ import com.sunfacil.sunfacil.service.InverterService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +19,9 @@ import java.util.Optional;
 @RequestMapping("/inverters")
 public class InverterController {
 
-    private final InverterService inverterService;
+    @Autowired
+    InverterService inverterService;
 
-    public InverterController(InverterService inverterService) {
-        this.inverterService = inverterService;
-    }
 
     @Operation(summary = "Get all Inverters Available")
     @GetMapping
