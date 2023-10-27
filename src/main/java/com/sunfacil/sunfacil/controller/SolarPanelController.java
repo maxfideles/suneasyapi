@@ -26,8 +26,13 @@ public class SolarPanelController {
 
     @Operation(summary = "Get All Solar Panels Available")
     @GetMapping()
-    public List<SolarPanel> getAll(){
-       return solarPanelService.getAll();
+    public ResponseEntity<DataResponse> getAll(){
+        List<SolarPanel> results = solarPanelService.getAll();
+        DataResponse response = new DataResponse();
+        response.setSuccess(true);
+        response.setCount(results.size());
+        response.setData(results);
+       return ResponseEntity.ok(response);
     }
 
     @PostMapping
