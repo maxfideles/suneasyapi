@@ -6,6 +6,7 @@ import com.sunfacil.sunfacil.domain.model.SolarPanel;
 import com.sunfacil.sunfacil.domain.model.SolarPanelModel;
 import com.sunfacil.sunfacil.service.SolarPanelService;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,7 +57,7 @@ public class SolarPanelServiceImpl implements SolarPanelService {
     @Override
     public List<SolarPanel> getAll() {
 
-        return solarPanelRepository.findAll();
+        return solarPanelRepository.findAll(Sort.by("manufacturer"));
     }
 
     @Override

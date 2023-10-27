@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @OpenAPIDefinition(servers = {@Server(url = "/",description = "Default Server URL")})
 @SpringBootApplication
-public class SunfacilApplication {
+public class SuneasyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SunfacilApplication.class, args);
+		SpringApplication.run(SuneasyApplication.class, args);
 	}
 
 }
