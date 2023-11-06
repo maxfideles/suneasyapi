@@ -1,0 +1,40 @@
+
+server:
+  port: 8090
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:inverter
+    username: inverter
+    password:
+  jackson:
+    mapper:
+      accept_case_insensitive_properties: true
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create # validate | update | create | create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /inverters/db/h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+  cache:
+    type: redis
+    cache-names:
+      - inverters
+
+    redis:
+      time-to-live: 3600S
+      cache-null-values: true
+
+  redis:
+    hots: localhost
+    port: 6379
