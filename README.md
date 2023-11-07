@@ -1,6 +1,6 @@
 # Suneasy (Backend)
 
-##Stack
+## Stack
 - Java JDK: 17
 - Spring Boot: 3.1.4
 - Dependencies: Gradle 
