@@ -1,4 +1,5 @@
 rootProject.name = 'microservicessuneasy'
 include ':panel'
 include ':inverter'
+include 'cityinfo'
 

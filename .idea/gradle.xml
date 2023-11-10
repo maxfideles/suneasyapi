@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/cityinfo" />
             <option value="$PROJECT_DIR$/inverter" />
             <option value="$PROJECT_DIR$/panel" />
           </set>
