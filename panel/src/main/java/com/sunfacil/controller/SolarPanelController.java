@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Solar Panels", description = "Get Solar Panels Information Detailed")
+@Tag(name = "Solar Panels", description = "Solar Panels API")
 @RestController
 @CrossOrigin
 @RequestMapping("/panels")
@@ -29,7 +29,7 @@ public class SolarPanelController {
     @Operation(summary = "Get All Solar Panels Available")
     @GetMapping()
     public DataResponse getAll(){
-        System.out.println("Executing Controller ");
+        System.out.println("Getting Data from Controller ");
 
         List<SolarPanel> results = solarPanelService.getAll();
         DataResponse response = new DataResponse();
@@ -40,9 +40,9 @@ public class SolarPanelController {
     }
 
     @CacheEvict(value = "panels",allEntries = true)
+    @Operation(summary = "Add Solar Panel")
     @PostMapping
     public ResponseEntity<SolarPanel> addPanel(@RequestBody SolarPanel solarPanel){
-
         return  ResponseEntity.ok(solarPanelService.createPanel(solarPanel));
     }
 
@@ -58,6 +58,7 @@ public class SolarPanelController {
         return ResponseEntity.ok(solarPanelService.findByModel(modelName));
     }
 
+    @Operation(summary = "Get Solar Panels By Its id")
     @GetMapping("/id/{id}")
     public ResponseEntity<List<SolarPanelModel>> getPanelModelsByIdManufacturer (@PathVariable Long id){
         return ResponseEntity.ok(solarPanelService.findById(id));
