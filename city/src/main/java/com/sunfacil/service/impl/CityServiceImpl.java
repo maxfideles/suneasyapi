@@ -36,6 +36,11 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    public City findCityByName(String city, String state) {
+        return cityRepository.findByNameAndStateIgnoreCase(city,state);
+    }
+
+    @Override
     public Optional<Diffuse> findDifById(Long id) {
         return diffuseRepository.findById(id);
     }

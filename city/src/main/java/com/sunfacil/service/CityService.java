@@ -13,6 +13,8 @@ public interface CityService {
 
     List<City> addCity (List<City> cityToBeAdded);
 
+    City findCityByName(String city, String state);
+
     Optional<Diffuse> findDifById(Long id);
 
     List<Diffuse> addDiffuse(List<Diffuse> diffuses);

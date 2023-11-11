@@ -34,6 +34,11 @@ public class CityController{
         return cityService.addCity(city);
     }
 
+    @GetMapping("/{city}/{state}")
+    public City getByName(@PathVariable String city, @PathVariable String state){
+        return cityService.findCityByName(city,state);
+    }
+
     @GetMapping("/dif/{id}")
     public Optional<Diffuse> getDifById(@PathVariable Long id){
         return cityService.findDifById(id);
