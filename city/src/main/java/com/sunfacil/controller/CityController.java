@@ -4,12 +4,11 @@ package com.sunfacil.controller;
 import com.sunfacil.domain.model.City;
 import com.sunfacil.domain.model.Diffuse;
 import com.sunfacil.domain.model.Horizontal;
+import com.sunfacil.domain.model.ResponseData;
 import com.sunfacil.service.CityService;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +34,20 @@ public class CityController{
     }
 
     @GetMapping("/{city}/{state}")
-    public City getByName(@PathVariable String city, @PathVariable String state){
-        return cityService.findCityByName(city,state);
+    public ResponseData getByName(@PathVariable String city, @PathVariable String state){
+
+        ResponseData responseData = new ResponseData();
+        City citySelected = cityService.findCityByName(city,state);
+        System.out.println(citySelected.getId());
+        Optional<Diffuse> diffuse = cityService.findDifById(citySelected.getId());
+        System.out.println(diffuse);
+        Optional<Horizontal> horizontal = cityService.findHorById(citySelected.getId());
+        System.out.println(horizontal);
+
+        responseData.setCity(citySelected);
+        responseData.setDiffuseList(diffuse);
+        responseData.setHorizontalList(horizontal);
+        return responseData;
     }
 
     @GetMapping("/dif/{id}")
