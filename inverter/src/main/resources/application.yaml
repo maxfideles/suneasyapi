@@ -4,8 +4,8 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:city
-    username: city
+    url: jdbc:h2:mem:inverter
+    username: inverter
     password:
   jackson:
     mapper:
@@ -22,7 +22,19 @@ spring:
   h2:
     console:
       enabled: true
-      path: /city/db/h2-console
+      path: /inverters/db/h2-console
       settings:
         trace: false
         web-allow-others: false
+  cache:
+    type: redis
+    cache-names:
+      - inverters
+
+    redis:
+      time-to-live: 3600S
+      cache-null-values: true
+
+  redis:
+    hots: localhost
+    port: 6379

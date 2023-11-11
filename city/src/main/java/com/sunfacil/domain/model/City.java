@@ -1,18 +1,24 @@
-package com.sunfacil.sunfacil.domain.model;
+package com.sunfacil.domain.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class City {
+public class City implements Serializable {
     @Id
     private long id;
     private String name;
     private String state;
-    private double lat;
-    private double lon;
-    private double temp;
+    private Double lat;
+    private Double lon;
+    private Double temp;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Diffuse> diffuseList;
+
 
 
     public long getId() {
