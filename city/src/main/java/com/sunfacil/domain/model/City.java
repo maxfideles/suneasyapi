@@ -19,6 +19,9 @@ public class City implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Diffuse> diffuseList;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Horizontal> horizontalList;
+
 
 
     public long getId() {
