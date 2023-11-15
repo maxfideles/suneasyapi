@@ -9,6 +9,8 @@ public class ResponseData {
 
     private Optional<Horizontal> horizontalList;
 
+    private Optional<TiltedLat> tiltedLatList;
+
 
     public City getCity() {
         return city;
@@ -33,5 +35,13 @@ public class ResponseData {
 
     public void setHorizontalList(Optional<Horizontal> horizontalList) {
         this.horizontalList = horizontalList;
+    }
+
+    public Optional<TiltedLat> getTiltedLatList() {
+        return tiltedLatList;
+    }
+
+    public void setTiltedLatList(Optional<TiltedLat> tiltedLatList) {
+        this.tiltedLatList = tiltedLatList;
     }
 }

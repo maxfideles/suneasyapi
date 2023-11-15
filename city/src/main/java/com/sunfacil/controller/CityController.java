@@ -1,10 +1,7 @@
 package com.sunfacil.controller;
 
 
-import com.sunfacil.domain.model.City;
-import com.sunfacil.domain.model.Diffuse;
-import com.sunfacil.domain.model.Horizontal;
-import com.sunfacil.domain.model.ResponseData;
+import com.sunfacil.domain.model.*;
 import com.sunfacil.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,10 +40,12 @@ public class CityController{
         System.out.println(diffuse);
         Optional<Horizontal> horizontal = cityService.findHorById(citySelected.getId());
         System.out.println(horizontal);
+        Optional<TiltedLat> tiltedLat = cityService.findTiltedById(citySelected.getId());
 
         responseData.setCity(citySelected);
         responseData.setDiffuseList(diffuse);
         responseData.setHorizontalList(horizontal);
+        responseData.setTiltedLatList(tiltedLat);
         return responseData;
     }
 
@@ -62,6 +61,7 @@ public class CityController{
 
     @GetMapping("/hor/{id}")
     public Optional<Horizontal> getHorById(@PathVariable Long id){
+
         return cityService.findHorById(id);
     }
 
@@ -70,6 +70,15 @@ public class CityController{
         return cityService.addHorizontal(horizontals);
     }
 
+    @GetMapping("/tilted/{id}")
+    public Optional<TiltedLat> getTiltedById(@PathVariable Long id){
+        return cityService.findTiltedById(id);
+    }
+
+    @PostMapping("/tilted")
+    public List<TiltedLat> addTilted(@RequestBody List<TiltedLat> tiltedLats){
+        return cityService.addTilted(tiltedLats);
+    }
 }
 
 

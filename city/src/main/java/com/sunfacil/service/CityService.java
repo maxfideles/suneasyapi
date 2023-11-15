@@ -3,6 +3,7 @@ package com.sunfacil.service;
 import com.sunfacil.domain.model.City;
 import com.sunfacil.domain.model.Diffuse;
 import com.sunfacil.domain.model.Horizontal;
+import com.sunfacil.domain.model.TiltedLat;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,4 +22,7 @@ public interface CityService {
 
     Optional<Horizontal> findHorById(Long id);
     List<Horizontal> addHorizontal(List<Horizontal> horizontals);
+
+    Optional<TiltedLat> findTiltedById(Long id);
+    List<TiltedLat> addTilted(List<TiltedLat> tiltedLats);
 }
