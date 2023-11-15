@@ -37,7 +37,7 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public City findCityByName(String city, String state) {
-        return cityRepository.findByNameAndStateIgnoreCase(city,state);
+        return cityRepository.findByAllIgnoreCaseNameAndState(city,state);
     }
 
     @Override
