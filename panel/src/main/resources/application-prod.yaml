@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
+  jackson:
+    mapper:
+      accept_case_insensitive_properties: true
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+
+  cache:
+    type: redis
+    cache-names:
+      - panels
+
+    redis:
+      time-to-live: 3600S
+      cache-null-values: true
+
+  redis:
+    host: ${REDISHOST}
+    port: ${REDISPORT}
